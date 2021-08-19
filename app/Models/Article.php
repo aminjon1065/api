@@ -14,7 +14,9 @@ class Article extends Model
         [
             'title',
             'body',
-            'img'
+            'img',
+            'userId',
+            'categoryId'
         ];
 
     public function User()

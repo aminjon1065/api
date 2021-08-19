@@ -6,6 +6,7 @@ use App\Http\Controllers\Authentification\AuthController;
 use App\Http\Controllers\Authentification\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersArticlesController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::post('logout', [AuthController::class, 'logout']);
 
 Route::get('category-count', [CategoryController::class, 'CategoryCount']);
 Route::get('users-articles-count', [UsersArticlesController::class, 'UsersArticles']);
+Route::post('article-store', [ArticleController::class, 'store']);
