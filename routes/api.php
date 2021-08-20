@@ -33,4 +33,5 @@ Route::post('logout', [AuthController::class, 'logout']);
 
 Route::get('category-count', [CategoryController::class, 'CategoryCount']);
 Route::get('users-articles-count', [UsersArticlesController::class, 'UsersArticles']);
-Route::post('article-store', [ArticleController::class, 'store']);
+Route::post('article-store', [ArticleController::class, 'store'])->middleware('auth:api');
+Route::get('articles', [ArticleController::class, 'index']);

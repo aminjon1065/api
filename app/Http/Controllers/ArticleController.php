@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function __construct()
+
+
+    public function index()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $posts = Article::paginate(10);
+        return response()->json($posts);
     }
+
+//    public function __construct()
+//    {
+//        $this->middleware('auth:api', ['except' => ['login']]);
+//    }
 
     public function store(Request $request)
     {
