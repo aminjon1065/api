@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
@@ -72,5 +73,9 @@ class User extends Authenticatable implements JWTSubject
     public function Article()
     {
         return $this->hasMany(Article::class, 'userId');
+    }
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 }

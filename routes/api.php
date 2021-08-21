@@ -7,6 +7,8 @@ use App\Http\Controllers\Authentification\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersArticlesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\OnlineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,6 @@ Route::post('article-store', [ArticleController::class, 'store'])->middleware('a
 Route::get('articles', [ArticleController::class, 'index']);
 Route::post('search', [ArticleController::class, 'searchPost']);
 Route::get('article/{id}', [ArticleController::class, 'show']);
+Route::post('online', [OnlineController::class, 'isOnline']);
+Route::delete('offline', [OnlineController::class, 'offline']);
+Route::get('online-users', [OnlineController::class, 'onlineUsers']);
