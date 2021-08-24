@@ -74,8 +74,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Article::class, 'userId');
     }
+
     public function isOnline()
     {
         return Cache::has('user-is-online-' . $this->id);
+    }
+
+    public function message()
+    {
+        return $this->hasMany(ChatMessage::class, 'userId');
     }
 }
